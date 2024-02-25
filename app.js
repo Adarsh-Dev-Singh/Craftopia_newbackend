@@ -4,6 +4,7 @@ require('express-async-errors');
 // Extra Security Packages
 const helmet = require('helmet')
 const cors = require('cors')
+
 const xss = require('xss-clean');
 const rateLimiter = require('express-rate-limit')
 
@@ -15,6 +16,7 @@ const authenticateUser = require('./middleware/authentication');
 //routers
 const authRouter = require('./routes/auth')
 const itemsRouter = require('./routes/items')
+const cartRouter = require('./routes/cart')
 
 
 // error handler
@@ -26,6 +28,7 @@ app.use(rateLimiter({
 }))
 app.use(helmet())
 app.use(cors())
+app.use(express.urlencoded({ extended: false }));
 app.use(xss())
 app.use(express.json());
 // extra packages
@@ -33,7 +36,7 @@ app.use(express.json());
 // routes
 app.use('/api/v1/auth',authRouter);
 app.use('/api/v1/items',authenticateUser,itemsRouter);
-
+app.use('/api/v1/order',cartRouter);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
