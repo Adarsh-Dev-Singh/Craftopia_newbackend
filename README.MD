@@ -1,3 +1,5 @@
+can't run without environment variables
+
 #### Setup
 
 ```bash
