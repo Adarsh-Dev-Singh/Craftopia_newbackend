@@ -16,7 +16,8 @@ npm install && npm start
 #### Routers
 
 - auth.js
-- jobs.js
+- cart.js
+- items.js
 
 #### User Model
 
@@ -60,7 +61,7 @@ Email Validation Regex
 Swagger UI
 
 ```yaml
-/jobs/{id}:
+/items/{id}:
   parameters:
     - in: path
       name: id
