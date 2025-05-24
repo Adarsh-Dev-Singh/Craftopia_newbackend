@@ -28,7 +28,7 @@ app.use(rateLimiter({
 }))
 app.use(helmet())
 app.use(cors({
-  origin: "https://craftopia-silk.vercel.app/",
+  origin: "https://craftopia-silk.vercel.app",
   credentials: true
 }));
 
