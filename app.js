@@ -27,7 +27,10 @@ app.use(rateLimiter({
   max: 100, //limit each IP to make 100 requests per windowMs i.e 15 minutes here
 }))
 app.use(helmet())
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  credentials: true
+}));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(xss())
