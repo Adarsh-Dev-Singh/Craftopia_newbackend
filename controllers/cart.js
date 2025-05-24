@@ -6,6 +6,9 @@ const placeOrder = async (req, res) => {
       key_id: process.env.RAZORPAY_KEY_ID,
       key_secret: process.env.RAZORPAY_SECRET,
     });
+    console.log("RAZORPAY_KEY_ID:", process.env.RAZORPAY_KEY_ID);
+console.log("RAZORPAY_SECRET:", process.env.RAZORPAY_SECRET);
+
 
     const options = req.body;
     const order = await razorpay.orders.create(options);
